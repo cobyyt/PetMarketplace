@@ -3,6 +3,15 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
+    <!-- Banner -->
+    {% if request.user.is_authenticated %}
+    {% else %}
+    <div class="bg-yellow-500 py-2 px-4 text-white">
+        <p class="text-center">Please <strong>log in</strong> or <strong>sign up</strong>. | Username: <strong>admin</strong> Password: <strong>testing1234</strong> |</p>
+    </div>
+    <br>
+    {% endif %}
+
     <!-- Slideshow container -->
     <div class="slideshow-container">
 
@@ -67,10 +76,15 @@
           slides[slideIndex-1].style.display = "block"; 
           dots[slideIndex-1].className += " active";
         }
+        
+        // Auto change slides every 5 seconds
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
     </script>
 
     <div class="mt-6 px-6 py-12 rounded-xl bg-white">
-        <h2 class="mb-12 text-2xl font-semibold text-center">Newest</h2>
+        <h2 class="mb-12 text-2xl font-semibold text-center">New Arrival</h2>
 
         <div class="grid grid-cols-3 gap-3">
             {% for item in items %}

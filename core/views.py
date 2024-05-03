@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate, logout
 
 from item.models import Category, Item
 
@@ -30,3 +31,7 @@ def signup(request):
     return render(request, 'core/signup.html', {
         'form': form
     })
+    
+def user_logout(request):
+    logout(request)
+    return redirect('/login/')
