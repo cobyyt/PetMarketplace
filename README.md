@@ -1,1 +1,3 @@
-A marketplace web for buying and selling goods.
+# Marketplace Web for Buying and Selling goods
+- conversation between user
+- list items
